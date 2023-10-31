@@ -1,202 +1,111 @@
-	
-import React from "react";
-import { useWindowWidth } from "../../breakpoints";
-import "./App.css";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export const LogInPage = () => {
-  const screenWidth = useWindowWidth();
+const Login = () => {
+  const [formData, setFormData] = useState({
+    usernameOrEmail: '',
+    password: ''
+  });
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { usernameOrEmail, password } = formData;
+    fetch('http://localhost:5000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username: usernameOrEmail, password }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json(); // Parse the JSON response when the status is OK
+        }
+        throw new Error('Invalid credentials'); // Throw an error for non-OK responses
+      })
+      .then((data) => {
+        // Handle the successful response data here
+        // You can store the access token (data.access_token) or perform other actions
+        setSuccessMessage('Login successful'); // Set success message in state
+      })
+      .catch((error) => {
+        // Handle errors, such as network issues or invalid credentials
+        console.error('Error:', error.message);
+        setErrors({ server: error.message }); // Set error message in state
+      });
+  };
 
   return (
-    <div className="log-in-page">
-      <div className="div">
-        <div
-          className="overlap"
-          style={{
-            height: screenWidth < 1280 ? "832px" : screenWidth >= 1280 ? "593px" : undefined,
-            left: screenWidth < 1280 ? "0" : screenWidth >= 1280 ? "838px" : undefined,
-            top: screenWidth < 1280 ? "0" : screenWidth >= 1280 ? "92px" : undefined,
-            width: screenWidth < 1280 ? "732px" : screenWidth >= 1280 ? "371px" : undefined,
-          }}
-        >
-          {screenWidth < 1280 && <div className="rectangle" />}
+    <div className="bg-gray-100 flex justify-center items-center h-screen">
+      {/* Left: Image */}
+      <div className="w-1/2 h-screen hidden lg:block">
+        <img
+          src="https://placehold.co/800x/667fff/ffffff.png?text=Your+Image&font=Montserrat"
+          alt="Placeholder Image"
+          className="object-cover w-full h-full"
+        />
+      </div>
+      {/* Right: Login Form */}
+      <div className="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2 bg-white shadow-lg rounded-lg">
+        <h1 className="text-2xl font-semibold mb-4">Login</h1>
+        <form onSubmit={handleSubmit}>
+          {/* Username Input */}
+          <div className="mb-4">
+            <label htmlFor="username" className="block text-gray-600">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+              autoComplete="off"
+            />
+          </div>
+          {/* Password Input */}
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-gray-600">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+              autoComplete="off"
+            />
+          </div>
+          {/* Remember Me Checkbox */}
+          <div className="mb-4 flex items-center">
+            <input type="checkbox" id="remember" name="remember" className="text-blue-500" />
+            <label htmlFor="remember" className="text-gray-600 ml-2">Remember Me</label>
+          </div>
+          {/* Forgot Password Link */}
+          <div className="mb-6 text-blue-500">
+            <a href="#" className="hover:underline">Forgot Password?</a>
+          </div>
+          {/* Login Button */}
+          <button
+  type="submit"
+  className="border-2 border-red-500 bg-white text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded w-full transition duration-300"
+>
+  Login
+</button>
 
-      <div
-        className="loginimg"
-        style={{
-          height: screenWidth < 1280 ? "832px" : screenWidth >= 1280 ? "50px" : undefined,
-          top: screenWidth < 1280 ? "0" : screenWidth >= 1280 ? "82px" : undefined,
-          width: screenWidth < 1280 ? "732px" : screenWidth >= 1280 ? "369px" : undefined,
-        }}
-      >
-        <div
-          className="overlap-group"
-          style={{
-            backgroundColor: screenWidth >= 1280 ? "#ffffff" : undefined,
-            backgroundImage:
-              screenWidth < 1280
-                ? "url(https://cdn.animaapp.com/projects/653f8f99f1019fcb4e7ffd35/releases/6540a0e7707ea87aae582df8/img/loginimg-1.png)"
-                : undefined,
-            backgroundPosition: screenWidth < 1280 ? "50% 50%" : undefined,
-            backgroundSize: screenWidth < 1280 ? "cover" : undefined,
-            borderRadius: screenWidth >= 1280 ? "5px" : undefined,
-            boxShadow: screenWidth >= 1280 ? "0px 4px 4px #00000040" : undefined,
-            height: screenWidth < 1280 ? "832px" : screenWidth >= 1280 ? "50px" : undefined,
-            width: screenWidth < 1280 ? "728px" : screenWidth >= 1280 ? "367px" : undefined,
-          }}
-        >
-          {screenWidth < 1280 && (
-            <>
-              <div className="LOGO">Jiseti</div>
-              <p className="corruption-is-the">
-                “Corruption is the mother of all poverty”
-                <br />
-                <br />
-                Desmond Tutu
-              </p>
-            </>
-          )}
-
-          {screenWidth >= 1280 && <div className="text-wrapper">Full Name</div>}
+        </form>
+        {/* Sign up Link */}
+        <div className="mt-6 text-red-500 text-center">
+          <Link to="/register" className="hover:underline">Sign up Here</Link>
         </div>
       </div>
-      {screenWidth >= 1280 && (
-        <>
-          <div className="email">
-            <div className="div-wrapper">
-              <input className="input" placeholder="Email" type="email" />
-            </div>
-          </div>
-          <div className="username">
-            <div className="div-wrapper">
-              <div className="text-wrapper">Username</div>
-            </div>
-          </div>
-          <div className="password">
-            <div className="div-wrapper">
-              <div className="text-wrapper">Password</div>
-            </div>
-          </div>
-          <div className="confirm-password">
-            <div className="div-wrapper">
-              <div className="text-wrapper">Confirm Password</div>
-            </div>
-          </div>
-          <button className="signupbtn">
-            <div className="overlap-2">
-              <div className="text-wrapper-2">Sign Up</div>
-            </div>
-          </button>
-          <div className="text-wrapper-3">Sign Up</div>
-          <p className="already-have-an">
-            <span className="span">Already have an account?&nbsp;&nbsp;</span>
-            <span className="text-wrapper-4">Log In</span>
-          </p>
-        </>
-      )}
     </div>
-    <div
-      className="loginpageform"
-      style={{
-        height: screenWidth < 1280 ? "404px" : screenWidth >= 1280 ? "832px" : undefined,
-        left: screenWidth < 1280 ? "834px" : screenWidth >= 1280 ? "0" : undefined,
-        top: screenWidth < 1280 ? "163px" : screenWidth >= 1280 ? "0" : undefined,
-        width: screenWidth < 1280 ? "377px" : screenWidth >= 1280 ? "732px" : undefined,
-      }}
-    >
-      {screenWidth < 1280 && <div className="text-wrapper-5">Log In</div>}
-
-      {screenWidth >= 1280 && <div className="rectangle" />}
-
-      <div
-        className="username-email"
-        style={{
-          height: screenWidth < 1280 ? "50px" : screenWidth >= 1280 ? "832px" : undefined,
-          left: screenWidth < 1280 ? "4px" : screenWidth >= 1280 ? "0" : undefined,
-          top: screenWidth < 1280 ? "123px" : screenWidth >= 1280 ? "0" : undefined,
-          width: screenWidth < 1280 ? "369px" : screenWidth >= 1280 ? "732px" : undefined,
-        }}
-      >
-        <div
-          className="overlap-group-2"
-          style={{
-            backgroundColor: screenWidth < 1280 ? "#ffffff" : undefined,
-            backgroundImage:
-              screenWidth >= 1280
-                ? "url(https://cdn.animaapp.com/projects/653f8f99f1019fcb4e7ffd35/releases/6540a0e7707ea87aae582df8/img/imgsignup-1.png)"
-                : undefined,
-            backgroundPosition: screenWidth >= 1280 ? "50% 50%" : undefined,
-            backgroundSize: screenWidth >= 1280 ? "cover" : undefined,
-            borderRadius: screenWidth < 1280 ? "5px" : undefined,
-            boxShadow: screenWidth < 1280 ? "0px 4px 4px #00000040" : undefined,
-            height: screenWidth < 1280 ? "50px" : screenWidth >= 1280 ? "832px" : undefined,
-            width: screenWidth < 1280 ? "367px" : screenWidth >= 1280 ? "728px" : undefined,
-          }}
-        >
-          {screenWidth < 1280 && <div className="text-wrapper">Username or Email</div>}
-
-          {screenWidth >= 1280 && (
-            <>
-              <div className="LOGO">Jiseti</div>
-              <div className="flexcontainer">
-                <p className="text">
-                  <span className="text-wrapper-6">
-                    &#34;Corruption is the enemy of development, and it <br />
-                  </span>
-                </p>
-                <p className="text">
-                  <span className="text-wrapper-6">
-                    undermines <br />
-                  </span>
-                </p>
-                <p className="text">
-                  <span className="text-wrapper-6">
-                    democratic institutions, social cohesion, <br />
-                  </span>
-                </p>
-                <p className="text">
-                  <span className="text-wrapper-6">
-                    and economic growth.&#34;
-                    <br />
-                  </span>
-                </p>
-                <p className="text">
-                  <span className="text-wrapper-6">
-                    <br />
-                  </span>
-                </p>
-                <p className="text">
-                  <span className="text-wrapper-6">Kofi Annan</span>
-                </p>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-      {screenWidth < 1280 && (
-        <>
-          <div className="overlap-wrapper">
-            <div className="div-wrapper">
-              <div className="text-wrapper">Password</div>
-            </div>
-          </div>
-          <button className="overlap-group-wrapper">
-            <div className="overlap-3">
-              <div className="text-wrapper-7">Sign Up</div>
-            </div>
-          </button>
-          <div className="text-wrapper-8">Welcome Back!</div>
-          <div className="rememberme">
-            <div className="rectangle-2" />
-            <div className="text-wrapper-9">Remember Me</div>
-          </div>
-          <p className="don-t-have-an">
-            <span className="span">Don’t have an account?</span>
-            <span className="text-wrapper-4">&nbsp;&nbsp;Sign Up</span>
-          </p>
-        </>
-      )}
-    </div>
-  </div>
-</div>
   );
 };
+
+export default Login;
