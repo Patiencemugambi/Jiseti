@@ -60,7 +60,50 @@ const Hero = () => {
           </section>
         </div>
       </div>
-
+      <div className="flex-col overflow-hidden relative flex min-h-[476px] px-5">
+  <img
+    loading="lazy"
+    srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/a4b4d818-112e-4520-a1a3-ecc4b1becf11?apiKey=838f7cc75ad348a9be211f9b2df2f096&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b4d818-112e-4520-a1a3-ecc4b1becf11?apiKey=838f7cc75ad348a9be211f9b2df2f096&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b4d818-112e-4520-a1a3-ecc4b1becf11?apiKey=838f7cc75ad348a9be211f9b2df2f096&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b4d818-112e-4520-a1a3-ecc4b1becf11?apiKey=838f7cc75ad348a9be211f9b2df2f096&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b4d818-112e-4520-a1a3-ecc4b1becf11?apiKey=838f7cc75ad348a9be211f9b2df2f096&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b4d818-112e-4520-a1a3-ecc4b1becf11?apiKey=838f7cc75ad348a9be211f9b2df2f096&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a4b4d818-112e-4520-a1a3-ecc4b1becf11?apiKey=838f7cc75ad348a9be211f9b2df2f096&width=2000 2000w"
+    className="absolute z-[-1] h-full w-full object-cover object-center inset-0"
+  />
+  <section className="relative text-zinc-300 text-xl font-semibold tracking-wide self-center whitespace-nowrap mt-20 max-md:mt-10" aria-label="About Us">
+    ABOUT US
+  </section>
+  <div className="relative self-center w-full max-w-[1131px] mt-20 mb-24 max-md:max-w-full max-md:my-10">
+    <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+      <div className="flex flex-col items-stretch w-[33%] max-md:w-full max-md:ml-0">
+        <div className="bg-white relative flex w-full grow flex-col flex-1 mx-auto pl-4 pr-5 pt-9 pb-12 rounded-md max-md:mt-3.5">
+          <h2 className="text-red-600 text-center text-xl font-medium tracking-wide self-center whitespace-nowrap" aria-label="Who Are We?">
+            Who Are We?
+          </h2>
+          <p className="text-black text-xs tracking-wide max-w-[339px] self-stretch mt-6">
+            We are a passionate team committed to creating positive <br /> change in Africa by fighting corruption and promoting <br /> transparent, accountable governance. <br />
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col items-stretch w-[33%] ml-5 max-md:w-full max-md:ml-0">
+        <div className="bg-white relative flex w-full grow flex-col flex-1 mx-auto pt-8 pb-12 px-5 rounded-md max-md:mt-3.5">
+          <h2 className="text-red-600 text-center text-xl font-medium tracking-wide self-center whitespace-nowrap" aria-label="Our Mission">
+            Our Mission
+          </h2>
+          <p className="text-black text-xs tracking-wide max-w-[315px] ml-3.5 mt-8 self-start max-md:ml-2.5">
+            Empowering Africans to combat corruption and drive <br /> meaningful development through transparency <br /> and accountability.
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col items-stretch w-[33%] ml-5 max-md:w-full max-md:ml-0">
+        <div className="bg-white relative flex w-full grow flex-col flex-1 mx-auto pl-5 pr-3 pt-8 pb-12 rounded-md max-md:mt-3.5">
+          <h2 className="text-red-600 text-center text-xl font-medium tracking-wide self-center whitespace-nowrap" aria-label="Our Vision">
+            Our Vision
+          </h2>
+          <p className="text-black text-xs tracking-wide max-w-[335px] self-stretch mt-8 max-md:ml-1.5">
+            We envision a corruption-free Africa where communities <br /> flourish, and governments respond to the needs of <br /> their citizens with integrity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       <div className="flex w-[559px] flex-col px-5">
         <h2 className="text-stone-600 text-3xl font-semibold tracking-wider self-center whitespace-nowrap">FAQs</h2>
         {faqs.map((faq, index) => (
