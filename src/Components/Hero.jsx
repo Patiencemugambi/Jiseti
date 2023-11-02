@@ -104,7 +104,28 @@ const Hero = () => {
     </div>
   </div>
 </div>
-      <div className="flex w-[559px] flex-col px-5">
+<div className="px-5">
+  <section className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+    <div className="flex flex-col items-stretch w-[49%] max-md:w-full max-md:ml-0">
+      <div className="flex grow flex-col max-md:max-w-full max-md:mt-10">
+        <div className="flex w-[367px] max-w-full flex-col self-end">
+          <h1 className="text-stone-600 text-3xl font-bold tracking-wide">Have any Questions?</h1>
+          <p className="text-black text-base tracking-wide mt-8 self-start">If you have inquiries for the Jiseti team or an <br /> interest in joining our mission to combat <br /> corruption in Africa, don't hesitate to get in touch!</p>
+          <a href="#" className="border bg-white flex w-[157px] max-w-full grow flex-col ml-5 mt-7 px-5 py-3 rounded-3xl border-solid border-red-600 self-start max-md:ml-2.5">
+            <span className="text-red-600 text-base self-center whitespace-nowrap">Contact Us</span>
+          </a>
+        </div>
+        <img
+  loading="lazy"
+  src="https://cdn.builder.io/api/v1/image/assets/TEMP/38240ec9-0775-43e0-b393-2f3f7e3913af?apiKey=838f7cc75ad348a9be211f9b2df2f096"
+  width="90" 
+  height="50"
+  className="aspect-[2.1] object-contain object-center w-full overflow-hidden grow mt-5 flex justify-center items-center py-12 pl-20 max-md:max-w-full max-md:mt-5"
+  />
+      </div>
+    </div>
+    <div className="flex flex-col items-stretch w-[51%] ml-5 max-md:w-full max-md:ml-0">
+      <div className="flex flex-col w-[559px] max-md:max-w-full max-md:mt-10">
         <h2 className="text-stone-600 text-3xl font-semibold tracking-wider self-center whitespace-nowrap">FAQs</h2>
         {faqs.map((faq, index) => (
           <div key={index} className="faq-item">
@@ -134,6 +155,9 @@ const Hero = () => {
         ))}
       </div>
     </div>
+  </section>
+</div>
+</div>
   );
 };
 
