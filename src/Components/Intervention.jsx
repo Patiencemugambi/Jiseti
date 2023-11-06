@@ -1,53 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const InterventionForm = () => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    location: {
-      latitude: '',
-      longitude: '',
-      county: '',
-      area: '',
-    },
+    county: '',
+    location: '',
     additionalDetails: '',
     files: [],
   });
-
-  useEffect(() => {
-    const fetchUserLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(async (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-
-          // Make API request to Google Maps Geocoding API
-          const apiKey = 'AIzaSyAd4QNyqDJawmkFmEC_YDojfyUHUeXpH80';
-          const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`);
-          const data = await response.json();
-          console.log(data)
-
-          // Extract county and area from the API response
-          const county = data.results[0].address_components.find(component => component.types.includes('administrative_area_level_2')).long_name;
-          const area = data.results[0].address_components.find(component => component.types.includes('administrative_area_level_1')).long_name;
-
-          setFormData((prevData) => ({
-            ...prevData,
-            location: {
-              latitude: latitude,
-              longitude: longitude,
-              county: county,
-              area: area,
-            },
-          }));
-        });
-      } else {
-        console.error("Geolocation is not supported by this browser.");
-      }
-    };
-
-    fetchUserLocation();
-  }, []); // Empty dependency array ensures the effect runs once after the initial render
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -61,87 +22,89 @@ const InterventionForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+       
     // Handle form submission logic here
-    console.log(formData);
+    fetch('https://jisetidb.onrender.com/interventions/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle API response (data from the server) here
+        console.log(data); // You can update this part based on your API response format
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
 
   return (
-    <div>
-      <h2>INTERVENTION FORM</h2>
+    <div className="w-3/5 mx-auto p-8 border border-gray-300 rounded-lg"> {/* Tailwind CSS classes */}
+      <h2 className="text-2xl font-semibold mb-6">INTERVENTION FORM</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-600">Title:</label>
           <input
             type="text"
             name="title"
             value={formData.title}
             onChange={handleInputChange}
+            className="mt-1 p-2 w-full border border-gray-300 rounded"
             required
           />
         </div>
-        <div>
-          <label>Brief Description:</label>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-600">Brief Description:</label>
           <textarea
             name="description"
             value={formData.description}
             onChange={handleInputChange}
             rows="4"
+            className="mt-1 p-2 w-full border border-gray-300 rounded"
             required
           ></textarea>
         </div>
-        <div>
-          <label>Location Latitude:</label>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-600">County:</label>
           <input
-            type="text"
-            name="latitude"
-            value={formData.location.latitude}
-            readOnly
-          />
-        </div>
-        <div>
-          <label>Location Longitude:</label>
-          <input
-            type="text"
-            name="longitude"
-            value={formData.location.longitude}
-            readOnly
-          />
-        </div>
-        <div>
-          <label>County:</label>
-          <input
-            type="text"
             name="county"
-            value={formData.location.county}
-            readOnly
+            value={formData.county}
+            onChange={handleInputChange}
+            className="mt-1 p-2 w-full border border-gray-300 rounded"
+            required
           />
         </div>
-        <div>
-          <label>Area:</label>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-600">Location:</label>
           <input
-            type="text"
-            name="area"
-            value={formData.location.area}
-            readOnly
+            name="location"
+            value={formData.location}
+            onChange={handleInputChange}
+            className="mt-1 p-2 w-full border border-gray-300 rounded"
+            required
           />
         </div>
-        <div>
-          <label>Additional Details:</label>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-600">Additional Details:</label>
           <textarea
             name="additionalDetails"
             value={formData.additionalDetails}
             onChange={handleInputChange}
             rows="4"
+            className="mt-1 p-2 w-full border border-gray-300 rounded"
             required
           ></textarea>
         </div>
-        <div>
-          <label>Upload Files:</label>
-          <input type="file" name="files" onChange={handleFileChange} multiple />
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-600">Upload Files:</label>
+          <input type="file" name="files" onChange={handleFileChange} multiple className="mt-1 w-full" />
         </div>
-        <div>
-          <button type="submit">Submit Request</button>
-          <button type="reset">Clear Form</button>
+        <div className="mt-6 flex justify-between items-center">
+          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-700">Submit Request</button>
+          <button type="reset" className="bg-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-gray-400 focus:outline-none focus:ring focus:border-gray-400">Clear Form</button>
         </div>
       </form>
     </div>
