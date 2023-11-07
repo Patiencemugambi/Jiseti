@@ -1,20 +1,35 @@
+
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AdminPanel from './Components/Adminpanel';
-import AdminForm from './Components/Adminform'; // Import the AdminForm component
-import AdminRedFlagForm from './Components/Adminredflagform';
+import Register from './Components/Register';
+import Login from './Components/Login';
+import Intervention from './Components/Intervention';
+import InterventionList from './Components/InterventionList';
+import Redflag from './Components/Redflag';
+import RedflagList from './Components/RedflagList';
 
 
 
-function App() {
+
+
+
+const App = () => {
   return (
+
     <Router>
       <Routes>
-        <Route path='/adminredflag' element = {<AdminRedFlagForm/>}/>
-      </Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path = "/intervention" element = {<Intervention />}/>
+        <Route path="/interventionlist" element={<InterventionList />} />
+        <Route path="/redflag" element={<Redflag />} />
+        <Route path="/redflaglist" element={<RedflagList />} />
+        
+       </Routes>
     </Router>
-
   );
-}
+};
 
 export default App;
+
