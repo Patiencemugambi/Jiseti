@@ -136,6 +136,7 @@ const InterventionForm = () => {
           <label className="block text-sm font-medium" style={{ color: '#9d9999' }}>Upload Files:</label>
           <input type="file" name="files" onChange={handleFileChange} multiple className="mt-1 w-full" />
         </div>
+        
         <div className="mt-6 flex justify-between items-center">
           <button type="submit"  className="mr-2 border-2 border-red-500 bg-white text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded w-full transition duration-300"
               style={{

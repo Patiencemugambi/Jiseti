@@ -71,36 +71,103 @@ const ReportForm = () => {
   
 
   return (
-    <div className="w-3/5 mx-auto p-8 border rounded-lg shadow-lg">
-        
-         <h2 className="text-2xl font-semibold mb-6">REDFLAG FORM</h2>
+    <div className="w-3/5 mx-auto p-8  rounded-lg ">
+         <h2 className="text-2xl  text-center font-medium mb-6" style={{ color: '#9d9999' }}>REPORT CORRUPTION</h2>
+      <h2 className="   mb-4" style={{ color: '#9d9999' }}>RED FLAG FORM</h2>
+         
          <div className="mb-4 text-green-500">
           {successMessage}
         </div>
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">
-            Incident Type:
-          </label>
-          <input
-            type="text"
-            value={incident_type}
-            onChange={(e) => setIncidentType(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
-            required
-          />
-        </div>
-        <label className="block text-sm font-medium text-gray-600">
+      <div className="flex">
+  <div className="mb-4 mr-10">
+    <label className="block text-sm font-medium" style={{ color: '#9d9999' }}>
+      Report Type:
+    </label>
+    <input
+      type="text"
+      value={incident_type}
+      onChange={(e) => setIncidentType(e.target.value)}
+      className="mt-1 p-2 w-full border border-gray-300 rounded shadow-lg"
+      required
+    />
+  </div>
+
+  <div className="mb-4">
+    <label className="block text-sm font-medium" style={{ color: '#9d9999' }}>
+      Date:
+    </label>
+    <input
+      type="date"
+      value={date}
+      onChange={(e) => setDate(e.target.value)}
+      className="mt-1 p-2 w-full border border-gray-300 rounded shadow-lg"
+      required
+    />
+  </div>
+</div>
+
+
+        <div  className="mb-4">
+        <label className="block text-sm font-medium "  style={{ color: '#9d9999' }}>
             Description:
           </label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
+            rows="4"
+            className="mt-1 p-2 w-full border border-gray-300 rounded shadow-lg"
             required
           />
-           <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">
+          </div>
+           
+        
+          <div className="flex">
+  <div className="mb-4 mr-2">
+    <label className="block text-sm font-medium" style={{ color: '#9d9999' }}>
+      County:
+    </label>
+    <input
+      type="text"
+      value={county}
+      onChange={(e) => setCounty(e.target.value)}
+      className="mt-1 p-2 w-full border border-gray-300 rounded shadow-lg"
+      required
+    />
+  </div>
+
+  <div className="mb-4">
+    <label className="block text-sm font-medium" style={{ color: '#9d9999' }}>
+      Location:
+    </label>
+    <input
+      type="text"
+      value={location}
+      onChange={(e) => setLocation(e.target.value)}
+       className="mt-1 p-2 w-full border border-gray-300 rounded shadow-lg"
+      required
+    />
+  </div>
+</div>
+
+
+        <div className="mb-4">
+        
+        <label className="block text-sm font-medium " style={{ color: '#9d9999' }}>
+         Additional Details:
+       </label>
+       <textarea
+         value={additional_details}
+         onChange={(e) => setAdditionalDetails(e.target.value)}
+         rows="4"
+         className="mt-1 p-2 w-full border border-gray-300 rounded shadow-lg"
+         required
+       />
+     </div>
+       
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium " style={{ color: '#9d9999' }}>
             Attachments:
           </label>
           <input
@@ -109,77 +176,24 @@ const ReportForm = () => {
             className="mt-1 w-full"
           />
         </div>
-        <div className="mb-4">
         
-        <label className="block text-sm font-medium text-gray-600">
-         Additional Details:
-       </label>
-       <textarea
-         value={additional_details}
-         onChange={(e) => setAdditionalDetails(e.target.value)}
-         className="mt-1 p-2 w-full border rounded"
-         required
-       />
-     </div>
-     <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">
-            County:
-          </label>
-          <input
-            type="text"
-            value={county}
-            onChange={(e) => setCounty(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
-            required
-          />
+     
+        
+        <div className="mt-6 flex justify-between items-center">
+          <button type="submit"  className="mr-2 border-2 border-red-500 bg-white text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded w-full transition duration-300"
+              style={{
+                borderRadius: "20px",
+              }}>
+                Submit Request
+                </button>
+
+          <button type="reset"  className="border-2 border-red-500 bg-white text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded w-full transition duration-300"
+              style={{
+                borderRadius: "20px",
+              }}> 
+              Clear Form
+              </button>
         </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">
-            Location:
-          </label>
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">
-            Date:
-          </label>
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
-            required
-          />
-        </div>
-        
-      
-        {/* <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">
-            :
-          </label>
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
-            required
-          />
-        </div> */}
-        
-        
-       
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Submit Report
-        </button>
       </form>
     </div>
   );
