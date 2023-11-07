@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const InterventionForm = () => {
   const [formData, setFormData] = useState({
     title: '',
@@ -9,6 +10,7 @@ const InterventionForm = () => {
     additionalDetails: '',
     files: [],
   });
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +36,9 @@ const InterventionForm = () => {
       .then((response) => response.json())
       .then((data) => {
         // Handle API response (data from the server) here
-        console.log(data); // You can update this part based on your API response format
+        console.log(data); 
+        setSuccessMessage('Intervention created successfully'); 
+        // You can update this part based on your API response format
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -44,6 +48,9 @@ const InterventionForm = () => {
   return (
     <div className="w-3/5 mx-auto p-8 border border-gray-300 rounded-lg"> {/* Tailwind CSS classes */}
       <h2 className="text-2xl font-semibold mb-6">INTERVENTION FORM</h2>
+      <div className="mb-4 text-green-500">
+          {successMessage}
+        </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-600">Title:</label>

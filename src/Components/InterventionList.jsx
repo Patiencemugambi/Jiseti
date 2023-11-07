@@ -112,6 +112,27 @@ const InterventionList = () => {
               className="mb-2 p-2 border rounded w-full"
               placeholder="Title"
             />
+             <input
+              type="text"
+              value={editedIntervention.description}
+              onChange={(e) => setEditedIntervention({ ...editedIntervention, description: e.target.value })}
+              className="mb-2 p-2 border rounded w-full"
+              placeholder="Title"
+            />
+             <input
+              type="text"
+              value={editedIntervention.county}
+              onChange={(e) => setEditedIntervention({ ...editedIntervention, county: e.target.value })}
+              className="mb-2 p-2 border rounded w-full"
+              placeholder="Title"
+            />
+             <input
+              type="text"
+              value={editedIntervention.location}
+              onChange={(e) => setEditedIntervention({ ...editedIntervention, location: e.target.value })}
+              className="mb-2 p-2 border rounded w-full"
+              placeholder="Title"
+            />
             <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
               Save
             </button>

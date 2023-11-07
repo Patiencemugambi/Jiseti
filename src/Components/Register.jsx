@@ -10,7 +10,7 @@ const SignUp = () => {
     confirmPassword: '',
   });
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -54,6 +54,8 @@ const SignUp = () => {
               password: '',
               confirmPassword: '',
             });
+            setMessage('Login successful. Token ');
+        setError('');
             setErrors({});
           } else {
             setErrors({ server: data.message });
@@ -337,7 +339,7 @@ const SignUp = () => {
             </button>
           </form>
           {/* Success Message */}
-          {successMessage && <p className="text-green-500 text-sm mt-4">{successMessage}</p>}
+          {message && <p className="text-green-500 text-center mt-4">{message}</p>}
           {/* Login Link */}
           <p className="text-center mt-4">
             Already have an account? <Link to="/login" className=" hover:underline" style={{ color: '#680853' }}>Log in here</Link>

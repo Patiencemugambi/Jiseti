@@ -4,7 +4,15 @@ import RedFlagDetailsModal from './RedFlagDetailsModal ';
 const RedFlagList = () => {
   const [redFlags, setRedFlags] = useState([]);
   const [openedMenuId, setOpenedMenuId] = useState(null);
-  const [editedRedFlag, setEditedRedFlag] = useState({});
+  const [editedRedFlag, setEditedRedFlag] = useState({
+    id: '',
+    incidentType: '',
+    date: '',
+    description: '',
+    county: '',
+    location: '',
+    // ... other properties
+  });
   const [isEditing, setIsEditing] = useState(false);
   const [selectedRedFlag, setSelectedRedFlag] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,7 +53,7 @@ const RedFlagList = () => {
 
   const handleEdit = async () => {
     try {
-      const response = await fetch(`https://jisetidb.onrender.com/red_flags/${editedRedFlag.id}/update_location`, {
+      const response = await fetch(`https://jisetidb.onrender.com/red_flags/${red_flag_id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -129,19 +137,25 @@ const RedFlagList = () => {
               className="mb-2 p-2 border rounded w-full"
               placeholder="Date"
             />
-            <input
-              type="description"
+            <textarea
               value={editedRedFlag.description}
               onChange={(e) => setEditedRedFlag({ ...editedRedFlag, description: e.target.value })}
               className="mb-2 p-2 border rounded w-full"
               placeholder="Description"
             />
             <input
-              type="county"
+              type="text"
               value={editedRedFlag.county}
               onChange={(e) => setEditedRedFlag({ ...editedRedFlag, county: e.target.value })}
               className="mb-2 p-2 border rounded w-full"
               placeholder="County"
+            />
+            <input
+              type="text"
+              value={editedRedFlag.location}
+              onChange={(e) => setEditedRedFlag({ ...editedRedFlag, location: e.target.value })}
+              className="mb-2 p-2 border rounded w-full"
+              placeholder="Location"
             />
             <button type="submit" className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700">Save</button>
           </form>

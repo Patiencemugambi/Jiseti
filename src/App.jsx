@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './Components/Register';
@@ -11,8 +12,10 @@ import RedflagList from './Components/RedflagList';
 
 
 
+
 const App = () => {
   return (
+
     <Router>
       <Routes>
         <Route path="/register" element={<Register />} />
@@ -28,3 +31,4 @@ const App = () => {
 };
 
 export default App;
+

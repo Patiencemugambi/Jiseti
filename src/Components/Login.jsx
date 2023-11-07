@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    usernameOrEmail: '',
+    username: '',
     password: ''
   });
   const [message, setMessage] = useState('');
@@ -15,7 +15,8 @@ const Login = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { usernameOrEmail, password } = formData;
+    const { username, password } = formData; 
+
     fetch('https://jisetidb.onrender.com/login', {
       method: 'POST',
       headers: {
@@ -31,10 +32,10 @@ const Login = () => {
       })
       .then((data) => {
         // Handle successful login
-        setMessage('Login successful. Token: ' + data.token);
+        setMessage('Login successful.' );
         setError('');
         // Clear form fields
-        setFormData({ usernameOrEmail: '', password: '' });
+        setFormData({ username: '', password: '' });
       })
       .catch((error) => {
         setError('Invalid credentials. Please try again.');
@@ -63,11 +64,11 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             {/* Username or Email Input */}
             <div className="mb-4">
-              <label className="block text-gray-600">Username or Email:</label>
+              <label className="block text-gray-600">Username:</label>
               <input
                 type="text"
-                name="usernameOrEmail"
-                value={formData.usernameOrEmail}
+                name="username"
+                value={formData.username}
                 onChange={handleChange}
                 className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
                 autoComplete="off"
