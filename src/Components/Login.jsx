@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const Login = () => {
   const [formData, setFormData] = useState({
     username: '',
-    password: ''
+    password: '',
+    role: 'user',
   });
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -15,9 +16,14 @@ const Login = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { username, password } = formData; 
-
-    fetch('https://jisetidb.onrender.com/login', {
+    const { username, password, role } = formData; 
+  
+    let endpoint = 'https://jisetidb.onrender.com/login';
+    if (role === 'admin') {
+      endpoint = 'https://jisetidb.onrender.com/admin/login'; // Specify the admin login endpoint
+    }
+  
+    fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,10 +38,10 @@ const Login = () => {
       })
       .then((data) => {
         // Handle successful login
-        setMessage('Login successful.' );
+        setMessage('Login successful.');
         setError('');
         // Clear form fields
-        setFormData({ username: '', password: '' });
+        setFormData({ username: '', password: '', role: formData.role });
       })
       .catch((error) => {
         setError('Invalid credentials. Please try again.');
@@ -43,6 +49,7 @@ const Login = () => {
         console.error('Error:', error);
       });
   };
+  
 
   return (
     <div className="bg-gray-100 flex h-screen">
@@ -93,6 +100,22 @@ const Login = () => {
                 autoComplete="off"
               />
             </div>
+            {/* Role Selection Dropdown */}
+<div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="role">
+    Role
+  </label>
+  <select
+    name="role"
+    value={formData.role}
+    onChange={handleChange}
+    className="w-full border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 shadow-lg mb-8"
+  >
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+</div>
+
             {/* Remember Me Checkbox */}
             <div className="mb-4 flex items-center">
               <input type="checkbox" id="remember" name="remember" className="text-blue-500" />

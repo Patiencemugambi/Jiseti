@@ -8,6 +8,7 @@ const SignUp = () => {
     email: '',
     password: '',
     confirmPassword: '',
+    role: 'user',
   });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
@@ -15,6 +16,7 @@ const SignUp = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,16 +48,15 @@ const SignUp = () => {
         .then((data) => {
           
           if (data.message === 'User created successfully') {
-            setSuccessMessage('User successfully created'); // Set success message
+            setMessage('Account successfully created'); // Set success message
             // Clear the form fields and errors after success
             setFormData({
               username: '',
               email: '',
               password: '',
               confirmPassword: '',
+              role: 'user'
             });
-            setMessage('Login successful. Token ');
-        setError('');
             setErrors({});
           } else {
             setErrors({ server: data.message });
@@ -148,6 +149,20 @@ const SignUp = () => {
               />
               {errors.confirmPassword && <span className="text-red-500 text-sm">{errors.confirmPassword}</span>}
             </div>
+            <div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="role">
+    Role
+  </label>
+  <select
+    name="role"
+    value={formData.role}
+    onChange={handleChange}
+    className="w-full border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 shadow-lg mb-8"
+  >
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+</div>
             {/* Sign Up Button */}
             <button
               type="submit"
@@ -158,6 +173,7 @@ const SignUp = () => {
             >
               Sign Up
             </button>
+            {message && <p className="text-green-500 text-center mt-4">{message}</p>}
           </form>
           {/* Success Message */}
           {message && <p className="text-green-500 text-center mt-4">{message}</p>}
