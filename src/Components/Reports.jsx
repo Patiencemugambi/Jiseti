@@ -143,7 +143,7 @@ const Reports = () => {
       {/* Render red flags */}
       {redFlags.map((redFlag) => (
         <div key={redFlag.id} className="mb-4 p-4 border rounded">
-          <h3 className="font-semibold mb-2">Incident Type: {redFlag.incidentType}</h3>
+          <h3 className="font-semibold mb-2">Incident Type: {redFlag.incident_type}</h3>
           <p><strong>Date:</strong> {redFlag.date}</p>
           <p><strong>Description:</strong> {redFlag.description}</p>
           <p><strong>County:</strong> {redFlag.county}</p>
