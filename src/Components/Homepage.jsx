@@ -72,21 +72,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       {/* *********hero********* */}
 
-
-      <div id='hero' className="hero-container">
+<div id='hero' class="hero-container">
   <div class="text-content">
     <h1>YOUR VOICE AGAINST <br /> <span class="highlight-word">CORRUPTION</span></h1>
     <h2>Jiseti is your platform to bring critical issues to light, hold wrongdoers accountable, and drive progress in your community.</h2>
     <h2>Join the movement for Transparency and Justice today!</h2>
     <a class="button-link" href="https://www.eqs.com/compliance-blog/corruption-perceptions-index/" target="_blank">
-  Learn More
-</a>
-
+      Learn More
+    </a>
   </div>
   <div class="image-content">
     <img src="https://cdn.pixabay.com/photo/2019/11/24/23/25/no-corruption-4650589_1280.png" alt="No Corruption" />
   </div>
 </div>
+
 
 
 
