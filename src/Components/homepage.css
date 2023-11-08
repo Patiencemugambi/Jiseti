@@ -1,0 +1,157 @@
+   .navbar {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed; 
+    top: 0; 
+    z-index: 1000; 
+    width: 100%; 
+    background-color: rgba(255, 255, 255, 0.95); 
+    background-color: white 0.9;
+    padding: 10px 20px; 
+    box-shadow: 0 2px 4px rgba(128, 128, 128, 0.315); 
+  }
+  .navbar li {
+    margin: 10px 20px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: black;
+    /* font-size: 1.2rem; */
+    transition: color 0.8s;
+  }
+  
+  .navbar a:hover {
+    color: gray;
+    transition: color 0.1s;
+  }
+  
+  .user-profile {
+    position: relative;
+    transition: color 0.8s;
+    cursor: pointer;
+  }
+  
+  .user-profile-expanded {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgb(83, 82, 82);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+
+  .user-profile-expanded a {
+    color: white;
+  }
+
+
+  .user-profile-expanded a:hover{
+    color: rgba(255, 255, 255, 0.705);
+
+  }
+  
+  .user-profile:hover .user-profile-expanded {
+    display: block;
+  }
+  
+  .user-profile:hover {
+    color: gray;
+    transition: color 0.1s;
+    cursor: pointer;
+  }
+
+
+  .hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .text-content {
+    flex: 1;
+    padding: 20px; /* Adjust as needed */
+  }
+  
+  .image-content {
+    flex: 1;
+    padding: 20px; /* Adjust as needed */
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 768px) {
+    .hero-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
+
+.button-link {
+    display: inline-block;
+    padding: 5px 40px;
+    text-decoration: none;
+    color: red;
+    border: 1px solid red;
+    border-radius: 20px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button-link:hover {
+    background-color: red;
+    color: white;
+  }
+  
+
+
+  /* *********** */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer div {
+    /* flex: 1; */
+    margin: 0 10px;
+}
+
+footer h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 15px;
+
+}
+
+footer ul li a:hover {
+    color: #ccc; /* Change the color to a lighter shade on hover */
+}
+
+footer p:hover{
+    color: #ccc; 
+}
+
+/* *********** */
