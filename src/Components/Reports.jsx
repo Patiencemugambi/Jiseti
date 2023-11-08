@@ -148,6 +148,7 @@ const Reports = () => {
           <p><strong>Description:</strong> {redFlag.description}</p>
           <p><strong>County:</strong> {redFlag.county}</p>
           <p><strong>Location:</strong> {redFlag.location}</p>
+          <p><strong>Status:</strong> {redFlag.status}</p> 
           <div className="mt-2">
             <button onClick={() => handleEditRedFlag(redFlag)} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mr-2">Edit</button>
             <button onClick={() => handleDeleteRedFlag(redFlag.id)} className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Delete</button>
@@ -164,6 +165,7 @@ const Reports = () => {
           <p><strong>Description:</strong> {intervention.description}</p>
           <p><strong>County:</strong> {intervention.county}</p>
           <p><strong>Location:</strong> {intervention.location}</p>
+          <p><strong>Status:</strong> {intervention.status}</p>
           <div className="mt-2">
             <button onClick={() => handleEditIntervention(intervention)} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mr-2">Edit</button>
             <button onClick={() => handleDeleteIntervention(intervention.id)} className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Delete</button>
