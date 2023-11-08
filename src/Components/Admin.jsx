@@ -25,7 +25,7 @@ const AdminPanel = ({ onUpdateStatus }) => {
 
         const interventionsData = interventionsResponse.data.map(item => ({
           id: item.id,
-          reportedBy: item.user_id,
+          reportedBy: item.id,
           reportType: 'Intervention',
           title: item.title,
           dateTime: item.date, // Replace with the actual property name for date
@@ -38,7 +38,7 @@ const AdminPanel = ({ onUpdateStatus }) => {
 
         const redFlagsData = redFlagsResponse.data.map(item => ({
           id: item.id,
-          reportedBy: item.user_id,
+          reportedBy: item.id,
           reportType: 'Red Flag',
           title: item.incident_type,
           date: item.date,
