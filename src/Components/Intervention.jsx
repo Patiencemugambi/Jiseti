@@ -27,7 +27,7 @@ const InterventionForm = () => {
     e.preventDefault();
        
     // Handle form submission logic here
-    fetch('https://jisetidb.onrender.com/interventions/', {
+    fetch('https://jisetidb.onrender.com/interventions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
