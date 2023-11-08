@@ -70,16 +70,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 5%;
+    margin-bottom: 0%;
   }
   
   .text-content {
     flex: 1;
     padding: 20px; /* Adjust as needed */
   }
-  
+
+  .text-content h1 {
+    font-size: 4.5vw; 
+    line-height: 1.4; 
+  }
+  .highlight-word {
+    color: red; /* Set the color to red */
+  }
+
   .image-content {
     flex: 1;
-    padding: 20px; /* Adjust as needed */
+    /* padding: 10px; */
   }
   
   /* Media query for responsiveness */
@@ -99,12 +109,14 @@
     border: 1px solid red;
     border-radius: 20px;
     text-align: center;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.8s;
+    margin-top: 2.8vh;
   }
   
   .button-link:hover {
     background-color: red;
     color: white;
+    transition: all 0.3s;
   }
   
 
@@ -155,3 +167,49 @@ footer p:hover{
 }
 
 /* *********** */
+
+
+
+/* Example styles, adjust as needed */
+.about-section {
+    background-image: url('https://gdb.voanews.com/731AD496-7C9A-4BA4-9928-D1B2B7002E3D_w1080_h608.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    height: 400px;
+    text-align: center;
+    /* filter: brightness(90%);  */
+  }
+
+  .about-section h2 {
+    margin: 0; 
+    padding: 20px 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: red;
+
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: space-between; 
+    justify-content: center;
+  }
+  
+  .card {
+    flex: 0 0 30%; /* Adjust the width as needed */
+    /* background: white;  */
+    background-color: rgba(255, 255, 255, 0.95); 
+    background-color: white 0.9;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin: 5px;
+    box-shadow: 0 0 10px rgba(150, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+  
+
+  #aboutustxt{
+    color: white;
+    font-size: 2.5rem;
+    /* font-weight: 400; */
+  }

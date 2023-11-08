@@ -50,7 +50,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           <li><a href="#reportanincident">REPORT AN INCIDENT</a></li>
           <li><a href="#my-reports">MY REPORTS</a></li>
           <li className="user-profile" onClick={toggleUserProfile}>
-          <img src="/Images/usericon.jpeg" className="h-8 w-8" alt="User" /> 
+          <img src="https://i.pinimg.com/564x/32/dd/d7/32ddd7aa5495a0bfa4a48d0ffa4c4fd6.jpg" className="h-6 w-6" alt="User" /> 
 
             {showUserProfile && (
               <div className="user-profile-expanded">
@@ -75,7 +75,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       <div id='hero' className="hero-container">
   <div class="text-content">
-    <h1>YOUR VOICE AGAINST CORRUPTION</h1>
+    <h1>YOUR VOICE AGAINST <br /> <span class="highlight-word">CORRUPTION</span></h1>
     <h2>Jiseti is your platform to bring critical issues to light, hold wrongdoers accountable, and drive progress in your community.</h2>
     <h2>Join the movement for Transparency and Justice today!</h2>
     <a class="button-link" href="https://www.eqs.com/compliance-blog/corruption-perceptions-index/" target="_blank">
@@ -84,7 +84,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
   </div>
   <div class="image-content">
-    <img src="/Images/no-corruption-4650589_1280.webp" alt="" />
+    <img src="https://cdn.pixabay.com/photo/2019/11/24/23/25/no-corruption-4650589_1280.png" alt="No Corruption" />
   </div>
 </div>
 
@@ -94,18 +94,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       {/* *********About us*********** */}
 
-      <div id="about-us">
-        <h2>ABOUT US</h2>
-        <div>
-          <div className= 'whoarewe'>
+      <div id="about-us" className="about-section">
+        <h2> <span id='aboutustxt'>ABOUT US</span></h2>
+        <div className="card-container">
+        <div className="card whoarewe">
             <h2>Who Are We?</h2>
             <p>We are a passionate team committed to creating positive change in Africa by fighting corruption and promoting transparent and accountable governance.</p>
           </div>
-          <div class='ourmission'>
+          <div className="card ourmission">
             <h2>Our Mission</h2>
             <p>Empowering Africans to combat corruption and drive meaningful development through transparency and accountability. </p>
           </div>
-          <div class='ourvision'>
+          <div className="card ourvision">
             <h2>Our Vision</h2>
             <p>We envision a corruption-free Africa where communities flourish, and governments respond to the needs of their citizens with integrity.</p>
           </div>
