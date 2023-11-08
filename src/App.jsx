@@ -8,9 +8,8 @@ import Intervention from './Components/Intervention';
 import InterventionList from './Components/InterventionList';
 import Redflag from './Components/Redflag';
 import RedflagList from './Components/RedflagList';
-
-
-
+import Admin from './Components/Admin';
+import Reports from './Components/Reports';
 
 
 
@@ -19,12 +18,15 @@ const App = () => {
 
     <Router>
       <Routes>
+   
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Admin/>} />
         <Route path = "/intervention" element = {<Intervention />}/>
         <Route path="/interventionlist" element={<InterventionList />} />
         <Route path="/redflag" element={<Redflag />} />
         <Route path="/redflaglist" element={<RedflagList />} />
+        <Route path="/reports" element={<Reports />} />
         
        </Routes>
     </Router>
