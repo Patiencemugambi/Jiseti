@@ -21,7 +21,7 @@ const AdminPanel = ({ onUpdateStatus }) => {
     const fetchData = async () => {
       try {
         const interventionsResponse = await axios.get('https://jisetidb.onrender.com/interventions/');
-        const redFlagsResponse = await axios.get('https://jisetidb.onrender.com/red_flags');
+        const redFlagsResponse = await axios.get('https://jisetidb.onrender.com/red_flags/');
 
         const interventionsData = interventionsResponse.data.map(item => ({
           id: item.id,
@@ -40,6 +40,7 @@ const AdminPanel = ({ onUpdateStatus }) => {
           id: item.id,
           reportedBy: item.user_id,
           reportType: 'Red Flag',
+          title: item.incident_type,
           date: item.date,
           description: item.description,
           county: item.county,
