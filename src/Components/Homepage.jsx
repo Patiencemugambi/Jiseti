@@ -18,7 +18,7 @@ function Homepage() {
     if (logoutConfirmation) {
       window.location.href = '/login';
     }
-  }
+  }  
 
   // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -113,27 +113,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       {/* *******report an incident******* */}
 
-      <div id="reportanincident">
-        <h2>REPORT AN INCIDENT</h2>
-        <div>
-          <div class='reportcorruption'>
-            <h2>Report Corruption</h2>
-            <p>Spot an incident related to corruption? <br />
-            Report it here and help us build transparency. Your voice matters. <br />
-            Join the fight against corruption today!</p>
-            <a href="/redflag" class="report-link">Report Now</a>
+<div id="reportanincident">
+  <h2 id='reporth2'>REPORT AN INCIDENT</h2>
+  <div class="report-sections">
+    <div class="reportcorruption">
+      <h2>Report Corruption</h2>
+      <p>Spot an incident related to corruption? <br />
+        Report it here and help us build transparency. <br />
+         Your voice matters. <br /></p>
+       <p> Join the fight against corruption today!</p>
+      <a href="/redflag" class="report-link">Report Now</a>
+    </div>
+    <div class="requestintervention">
+      <h2>Request Intervention</h2>
+      <p>Need government intervention in your community? <br />
+        Whether it's road repairs, bridge fixes, or flood management. <br /> Submit your request for action. <br /></p>
+       <p>Your call, your community, your change!</p>
+      <a href="/intervention" class="report-link">Request Now</a>
+    </div>
+  </div>
+</div>
 
-          </div>
-          <div class='requestintervention'>
-            <h2>Request Intervention</h2>
-            <p>Need government intervention in your community? <br />
-            Whether it's road repairs, bridge fixes, or flood management, submit your request for action. <br />
-            Your call, your community, your change!</p>
-            <a href="/intervention" class="report-link">Report Now</a>
-
-          </div>
-        </div>
-      </div>
 
       {/* ******my reports****** */}
 
@@ -146,14 +146,82 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       {/* *******faqs*********** */}
       <div class='faqs'>
-        <div>
+        <div> 
+          <div>
           <h2>Have any Questions?</h2>
-          <p>If you have inquiries for the Jiseti team or an interest in joining our mission to combat corruption in Africa, don't hesitate to get in touch!</p>
+          <p>If you have inquiries for the Jiseti team or an interest in <br /> joining our mission to combat corruption in Africa, don't hesitate to get in touch!</p>
+          </div>
+          <div>
+            <img src="https://previews.123rf.com/images/argus456/argus4561605/argus456160522386/57141285-stop-corruption-3d-rendering-red-sticker-with-white-text.jpg" alt="" />
+          </div>
         </div>
+        <div class='faq-questions'>
+          <h2>FAQs</h2>
+              <p className="user-profile" onClick={toggleUserProfile}>
+                <p>1. What is Jiseti</p>
 
-        
-      {/* ********footer********* */}
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>2. How can I create an account on Jiseti?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>3. What are Red Flags?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>4. What are Intervention Records?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>5. How do I add geolocation to my records?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>6. Can I change the geolocation of a record once it's submitted?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          
+          
+</div>
+
       </div>
+
+
+
+
+              
+      {/* ********footer********* */}
       <footer>
         <div>
           <h2>Navigation Links</h2>
