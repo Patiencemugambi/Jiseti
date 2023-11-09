@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -22,6 +20,7 @@ const App = () => {
 
     <Router>
       <Routes>
+
       <Route path="/"  element={<Homepage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}/>
         
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
