@@ -12,18 +12,14 @@ import Homepage from './Components/Homepage';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState(""); // State to store the username
+  const [username, setUsername] = useState("");
 
-  // useEffect to retrieve username when user is logged in
   useEffect(() => {
-    // Here, you can implement logic to retrieve the username, for example, from an API call or context
-    // For now, let's assume you have a function called fetchUsername() that retrieves the username
-    // Replace fetchUsername with your actual logic to get the username
     const fetchUsername = async () => {
       try {
         const response = await fetch('https://jisetidb.onrender.com/users/'); 
         const data = await response.json();
-        setUsername(data.username); // Set the retrieved username in the state
+        setUsername(data.username);
       } catch (error) {
         console.error('Error fetching username:', error);
       }
@@ -37,8 +33,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<Homepage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} username={username} />} />
-
+        <Route path="/" element={<Homepage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<Admin />} />
