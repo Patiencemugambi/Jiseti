@@ -80,9 +80,15 @@
   }
 
   .text-content h1 {
-    font-size: 4.5vw; 
+    font-size: 4.4vw; 
     line-height: 1.4; 
     margin-top: 0;
+  }
+
+  .text-content h2{
+    margin-top: 1.8vh;
+    color: #333333cb;
+
   }
   .highlight-word {
     color: red; /* Set the color to red */
@@ -94,7 +100,7 @@
   }
 
   .image-content img {
-    max-width: 90%; 
+    max-width: 80%; 
     max-height: 90%;
     height: auto; /* Allow the image's height to adjust proportionally */
   }
@@ -191,9 +197,9 @@ footer p:hover{
   .about-section h2 {
     margin: 0; 
     padding: 20px 0;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
-    color: red;
+    color: rgb(134, 50, 50);
 
   }
   
@@ -214,10 +220,89 @@ footer p:hover{
     box-shadow: 0 0 10px rgba(150, 0, 0, 0.5);
     border-radius: 5px;
   }
+
+  .card p{
+    color: #333333cb;
+
+  }
   
 
   #aboutustxt{
     color: white;
-    font-size: 2.5rem;
-    /* font-weight: 400; */
+    font-size: 2.5vh;
+    font-weight: 500;
   }
+
+
+
+  /* #reportanincident {
+    align-items: center;
+    text-align: left;
+  } */
+
+  #reporth2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(77, 57, 57, 0.767);
+    margin: 1%;
+
+
+
+  }
+  
+  .report-sections {
+    display: flex;
+    justify-content: center;
+    margin-left: 18%;
+    margin-right: 18%;
+    text-align: ;
+
+
+    
+  }
+  
+  .reportcorruption,
+  .requestintervention {
+    width: 45%; /* Adjust width as needed */
+    margin: 0 10px; /* Adjust margin for the gap between the divs */
+  }
+
+  .reportcorruption p{
+    margin-top: 2vh;
+    color: #333333cb;
+  }
+  .requestintervention p{
+    margin-top: 2vh;
+    color: #333333cb;
+
+  }
+  
+  .report-sections h2{
+    font-weight: 400;
+    font-size: 2.2vh;
+    color: red;
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+  }
+
+  .report-link {
+    display: inline-block;
+    padding: 5px 40px;
+    border: 1px solid red;
+    color: red;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.8s ease;
+    margin-top: 2.8vh;
+ 
+  }
+  
+  .report-link:hover {
+    background-color: red;
+    color: white;
+    transition: all 0.3s ease;
+
+  }
+  

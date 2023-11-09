@@ -113,27 +113,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       {/* *******report an incident******* */}
 
-      <div id="reportanincident">
-        <h2>REPORT AN INCIDENT</h2>
-        <div>
-          <div class='reportcorruption'>
-            <h2>Report Corruption</h2>
-            <p>Spot an incident related to corruption? <br />
-            Report it here and help us build transparency. Your voice matters. <br />
-            Join the fight against corruption today!</p>
-            <a href="/redflag" class="report-link">Report Now</a>
+<div id="reportanincident">
+  <h2 id='reporth2'>REPORT AN INCIDENT</h2>
+  <div class="report-sections">
+    <div class="reportcorruption">
+      <h2>Report Corruption</h2>
+      <p>Spot an incident related to corruption? <br />
+        Report it here and help us build transparency. <br />
+         Your voice matters. <br /></p>
+       <p> Join the fight against corruption today!</p>
+      <a href="/redflag" class="report-link">Report Now</a>
+    </div>
+    <div class="requestintervention">
+      <h2>Request Intervention</h2>
+      <p>Need government intervention in your community? <br />
+        Whether it's road repairs, bridge fixes, or flood management. <br /> Submit your request for action. <br /></p>
+       <p>Your call, your community, your change!</p>
+      <a href="/intervention" class="report-link">Request Now</a>
+    </div>
+  </div>
+</div>
 
-          </div>
-          <div class='requestintervention'>
-            <h2>Request Intervention</h2>
-            <p>Need government intervention in your community? <br />
-            Whether it's road repairs, bridge fixes, or flood management, submit your request for action. <br />
-            Your call, your community, your change!</p>
-            <a href="/intervention" class="report-link">Report Now</a>
-
-          </div>
-        </div>
-      </div>
 
       {/* ******my reports****** */}
 
