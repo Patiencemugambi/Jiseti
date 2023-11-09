@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,9 @@ const Login = () => {
   });
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+ 
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,6 +22,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { username, password, role } = formData; 
+    
   
     let endpoint = 'https://jisetidb.onrender.com/login';
     if (role === 'admin') {
@@ -42,6 +48,14 @@ const Login = () => {
         setError('');
         // Clear form fields
         setFormData({ username: '', password: '', role: formData.role });
+
+        if (role === 'admin') {
+          // Redirect to the admin panel route
+          navigate('/admin');
+        } else {
+          // Redirect to the user dashboard or any other appropriate route
+          navigate('/');
+        }
       })
       .catch((error) => {
         setError('Invalid credentials. Please try again.');
