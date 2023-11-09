@@ -149,7 +149,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         <div> 
           <div>
           <h2>Have any Questions?</h2>
-          <p>If you have inquiries for the Jiseti team or an interest in  joining our mission to combat corruption in Africa, don't hesitate to get in touch!</p>
+          <p>If you have inquiries for the Jiseti team or an interest in  joining our mission to combat <br /> corruption in Africa, don't hesitate to get in touch!</p>
           <a href="/contact" class="report-link">Contact Us</a>
 
           </div>
@@ -168,16 +168,40 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
               </div>
             )}
           </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <h1>2. How can I create an account on Jiseti?</h1>
 
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>To create an account ...</p>
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <h1>3. What are Red Flags?</h1>
 
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Red Flags are</p>
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <h1>4. What are Intervention Records?</h1>
 
-          
-          
-</div>
-
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Red Flags are</p>
+              </div>
+            )}
+          </p>                 
+      </div>
       </div>
 
 
+      <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+  <img src="https://i.pinimg.com/564x/28/50/a1/2850a1b5dc9df03106233da06440cb0f.jpg" alt="Scroll to Top" />
+</button>
 
 
               

@@ -40,10 +40,10 @@
     right: 0;
     background-color: white;
     /* color: rgb(150, 22, 22); */
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px #3333333a ; 
-    width: 220px;
+    padding: 20px;
+    /* border-radius: 5px; */
+    box-shadow: 5px 5px 8px 2px #3333333a ; 
+    width: 210px;
     height: 210px;
     line-height: 2.5;
 
@@ -59,7 +59,7 @@
 
 
   .user-profile-expanded a:hover{
-    color: gray;
+    color: rgb(151, 89, 89);
 
   }
   
@@ -346,6 +346,7 @@ footer p:hover{
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #3333333a;
+    margin: 5px;
 }
 
 
@@ -356,7 +357,29 @@ footer p:hover{
     padding: 10px;
     border: 1px solid #3333333a;
     margin-top: 5px;
+    display: none;
+
 }
 
 .faqs h1:hover, .faq-expanded:hover{
 }
+
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 2px  2px 4px rgba(0, 0, 0, 0.596) ; 
+
+  }
+  
+  .scroll-to-top img {
+    width: 20px;
+    height: 20px;
+  }
+  
