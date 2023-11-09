@@ -139,29 +139,39 @@ const Reports = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-semibold text-center mb-4"style={{ color: '#9d9999' }}>Red Flags</h2>
+      <h2 className="text-2xl font-semibold mb-4">Red Flags</h2>
       {/* Render red flags */}
       {redFlags.map((redFlag) => (
-        <div key={redFlag.id} className="mb-4 p-4 rounded">
-          <h3 className="font-medium  mb-2"style={{ color: '#9d9999' }}>Incident Type: {redFlag.incident_type}</h3>
-          <p><strong style={{ color: '#9d9999' }}>Date:</strong> {redFlag.date}</p>
-          <p><strong style={{ color: '#9d9999' }}>Description:</strong> {redFlag.description}</p>
-          <p><strong style={{ color: '#9d9999' }}>County:</strong> {redFlag.county}</p>
-          <p><strong style={{ color: '#9d9999' }}>Location:</strong> {redFlag.location}</p>
-          <p><strong style={{ color: '#9d9999' }}>Status:</strong> {redFlag.status}</p> 
-          <div className="mt-6 flex justify-between items-center">
-            <button onClick={() => handleEditRedFlag(redFlag)} className="mr-2 border-2 border-red-500 bg-white text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded w-full transition duration-300"
-              style={{
-                borderRadius: "20px",
-              }}>Edit</button>
-            <button onClick={() => handleDeleteRedFlag(redFlag.id)} className="mr-2 border-2 border-red-500 bg-white text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded w-full transition duration-300"
-              style={{
-                borderRadius: "20px",
-              }}>Delete</button>
+        <div key={redFlag.id} className="mb-4 p-4 border rounded">
+          <h3 className="font-semibold mb-2">Incident Type: {redFlag.incident_type}</h3>
+          <p><strong>Date:</strong> {redFlag.date}</p>
+          <p><strong>Description:</strong> {redFlag.description}</p>
+          <p><strong>County:</strong> {redFlag.county}</p>
+          <p><strong>Location:</strong> {redFlag.location}</p>
+          <p><strong>Status:</strong> {redFlag.status}</p> 
+          <div className="mt-2">
+            <button onClick={() => handleEditRedFlag(redFlag)} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mr-2">Edit</button>
+            <button onClick={() => handleDeleteRedFlag(redFlag.id)} className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Delete</button>
           </div>
         </div>
       ))}
 
+      <h2 className="text-2xl font-semibold my-4">Interventions</h2>
+      {/* Render interventions */}
+      {interventions.map((intervention) => (
+        <div key={intervention.id} className="mb-4 p-4 border rounded">
+          <h3 className="font-semibold mb-2">Title: {intervention.title}</h3>
+          <p><strong>Date:</strong> {intervention.date}</p>
+          <p><strong>Description:</strong> {intervention.description}</p>
+          <p><strong>County:</strong> {intervention.county}</p>
+          <p><strong>Location:</strong> {intervention.location}</p>
+          <p><strong>Status:</strong> {intervention.status}</p>
+          <div className="mt-2">
+            <button onClick={() => handleEditIntervention(intervention)} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mr-2">Edit</button>
+            <button onClick={() => handleDeleteIntervention(intervention.id)} className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Delete</button>
+          </div>
+        </div>
+      ))}
 
 {isEditingRedFlag && (
   <div className="mt-4 p-4 border rounded">
@@ -201,38 +211,12 @@ const Reports = () => {
         className="mb-2 p-2 border rounded w-full"
         placeholder="Location"
       />
-      <button type="submit" className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red">
+      <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
         Save
       </button>
     </form>
   </div>
 )}
-
-
-
-      <h2 className="text-2xl font-semibold my-4 text-center mt-5 border-t" style={{ color: '#9d9999' }}>Interventions</h2>
-      {/* Render interventions */}
-      {interventions.map((intervention) => (
-        <div key={intervention.id} className="mb-4 p-4 rounded">
-          <h3 className="font-medium mb-2" style={{ color: '#9d9999' }} >Title: {intervention.title}</h3>
-          <p><strong style={{ color: '#9d9999' }}>Date:</strong> {intervention.date}</p>
-          <p><strong style={{ color: '#9d9999' }}>Description:</strong> {intervention.description}</p>
-          <p><strong style={{ color: '#9d9999' }}>County:</strong> {intervention.county}</p>
-          <p><strong style={{ color: '#9d9999' }}>Location:</strong> {intervention.location}</p>
-          <p><strong style={{ color: '#9d9999' }}>Status:</strong> {intervention.status}</p>
-          <div className="mt-6 flex justify-between items-center">
-            <button onClick={() => handleEditIntervention(intervention)} className="mr-2 border-2 border-red-500 bg-white text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded w-full transition duration-300"
-              style={{
-                borderRadius: "20px",
-              }}>Edit</button>
-            <button onClick={() => handleDeleteIntervention(intervention.id)} className="mr-2 border-2 border-red-500 bg-white text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded w-full transition duration-300"
-              style={{
-                borderRadius: "20px",
-              }}>Delete</button>
-          </div>
-        </div>
-      ))}
-
 {isEditingIntervention && (
   <div className="mt-4 p-4 border rounded">
     <h2 className="text-2xl font-semibold mb-4">Edit Intervention</h2>
@@ -271,7 +255,7 @@ const Reports = () => {
         className="mb-2 p-2 border rounded w-full"
         placeholder="Location"
       />
-      <button type="submit"  className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red">
+      <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
         Save
       </button>
     </form>

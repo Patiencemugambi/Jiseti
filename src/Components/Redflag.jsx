@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const ReportForm = () => {
   const [incident_type, setIncidentType] = useState('');
@@ -8,6 +10,7 @@ const ReportForm = () => {
   const [county, setCounty] = useState('');
   const [location, setLocation] = useState('');
   const [attachment, setAttachment] = useState('');
+  const navigate = useNavigate(); 
 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -17,6 +20,10 @@ const ReportForm = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setAttachment(file);
+  };
+  const handleBackButtonClick = () => {
+    // Navigate back to the Reports area when the back button is clicked
+    navigate('/#reportanincident');
   };
 
   const handleSubmit = (e) => {
@@ -74,6 +81,16 @@ const ReportForm = () => {
     <div className="w-3/5 mx-auto p-8  rounded-lg ">
          <h2 className="text-2xl  text-center font-medium mb-6" style={{ color: '#9d9999' }}>REPORT CORRUPTION</h2>
       <h2 className="   mb-4" style={{ color: '#9d9999' }}>RED FLAG FORM</h2>
+      <button
+          type="button"
+          onClick={handleBackButtonClick}
+          className="mr-2 border-2 border-red-500 bg-white text-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded w-full transition duration-300"
+          style={{
+            borderRadius: "20px",
+          }}
+        >
+          Back 
+        </button>
          
          <div className="mb-4 text-green-500">
           {successMessage}
