@@ -1,23 +1,39 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+
+
+
+  const Login = ({ setIsLoggedIn }) => {
   const [formData, setFormData] = useState({
     username: '',
-    password: ''
+    password: '',
+    role: 'user',
   });
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { username, password } = formData; 
-
-    fetch('https://jisetidb.onrender.com/login', {
+    setIsLoading(true);
+    const { username, password, role } = formData; 
+    
+  
+    let endpoint = 'https://jisetidb.onrender.com/login';
+    if (role === 'admin') {
+      endpoint = 'https://jisetidb.onrender.com/admin/login'; // Specify the admin login endpoint
+    }
+  
+    fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,17 +48,31 @@ const Login = () => {
       })
       .then((data) => {
         // Handle successful login
-        setMessage('Login successful.' );
+        setMessage('Login successful.');
         setError('');
         // Clear form fields
-        setFormData({ username: '', password: '' });
+        setFormData({ username: '', password: '', role: formData.role });
+
+        if (role === 'admin') {
+          // Redirect to the admin panel route
+          navigate('/admin');
+        } else {
+          // Redirect to the user dashboard or any other appropriate route
+          navigate('/');
+        }
+        setIsLoading(false);
+        const { token } = data;
+        localStorage.setItem('token', token); // Store the JWT token in localStorage
+        setIsLoggedIn(true);
       })
       .catch((error) => {
+        setIsLoading(false);
         setError('Invalid credentials. Please try again.');
         setMessage('');
         console.error('Error:', error);
       });
   };
+  
 
   return (
     <div className="bg-gray-100 flex h-screen">
@@ -65,6 +95,7 @@ const Login = () => {
       {/* Right Section: Login Form */}
       <div className="w-full lg:w-1/2 p-8 flex justify-center items-center bg-white">
         <div className=" rounded-lg p-8 w-full max-w-md">
+        {isLoading && <p className="text-gray-500 text-center mt-4">Loading...</p>}
           <h1 className="text-4xl font-medium mb-7 " style={{ color: '#595656' }}>Log In</h1>
           <form onSubmit={handleSubmit}>
             {/* Username or Email Input */}
@@ -93,6 +124,22 @@ const Login = () => {
                 autoComplete="off"
               />
             </div>
+            {/* Role Selection Dropdown */}
+<div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="role">
+    Role
+  </label>
+  <select
+    name="role"
+    value={formData.role}
+    onChange={handleChange}
+    className="w-full border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 shadow-lg mb-8"
+  >
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+</div>
+
             {/* Remember Me Checkbox */}
             <div className="mb-4 flex items-center">
               <input type="checkbox" id="remember" name="remember" className="text-blue-500" />
