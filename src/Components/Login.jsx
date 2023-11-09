@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
-const Login = () => {
+
+
+  const Login = ({ setIsLoggedIn }) => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -12,15 +14,17 @@ const Login = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
- 
+
 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const { username, password, role } = formData; 
     
   
@@ -56,8 +60,13 @@ const Login = () => {
           // Redirect to the user dashboard or any other appropriate route
           navigate('/');
         }
+        setIsLoading(false);
+        const { token } = data;
+        localStorage.setItem('token', token); // Store the JWT token in localStorage
+        setIsLoggedIn(true);
       })
       .catch((error) => {
+        setIsLoading(false);
         setError('Invalid credentials. Please try again.');
         setMessage('');
         console.error('Error:', error);
@@ -86,6 +95,7 @@ const Login = () => {
       {/* Right Section: Login Form */}
       <div className="w-full lg:w-1/2 p-8 flex justify-center items-center bg-white">
         <div className=" rounded-lg p-8 w-full max-w-md">
+        {isLoading && <p className="text-gray-500 text-center mt-4">Loading...</p>}
           <h1 className="text-4xl font-medium mb-7 " style={{ color: '#595656' }}>Log In</h1>
           <form onSubmit={handleSubmit}>
             {/* Username or Email Input */}

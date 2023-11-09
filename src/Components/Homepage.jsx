@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 import './homepage.css';
 import { Routes, Route } from 'react-router-dom';
+import Reports from './Reports';
 
 
 
-function Homepage() {
+function Homepage({ isLoggedIn, setIsLoggedIn }) {
   const [showUserProfile, setShowUserProfile] = useState(false);
+  
 
   const toggleUserProfile = () => {
     setShowUserProfile(!showUserProfile);
   };
 
-
-
-  function confirmLogout() {
-    var logoutConfirmation = window.confirm('Are you sure you want to log out?');
+ 
+  const confirmLogout = () => {
+    const logoutConfirmation = window.confirm('Are you sure you want to log out?');
     if (logoutConfirmation) {
-      window.location.href = '/login';
+      localStorage.removeItem('token'); // Remove the token from localStorage on logout
+      setIsLoggedIn(false); // Update the app state to indicate the user is logged out
+      window.location.href = '/login'; // Redirect to the login page
     }
-  }  
+  }; 
 
   // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -46,9 +49,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       <nav>
         <ul className="navbar">
-          <li><a href="#about-us">ABOUT US</a></li>
-          <li><a href="#reportanincident">REPORT AN INCIDENT</a></li>
-          <li><a href="#my-reports">MY REPORTS</a></li>
+          <li><a href="#hero">HOME</a></li>
+          {isLoggedIn && <li><a href="#about-us">ABOUT US</a></li>}
+          {isLoggedIn && <li><a href="#reports">MY REPORTS</a></li>}
+          {isLoggedIn && <li><a href="#reportanincident">REPORT AN INCIDENT</a></li>}
+          {!isLoggedIn && <li><a href="/login">LOGIN</a></li>}
+          {!isLoggedIn && <li><a href="/register">SIGN UP</a></li>}
           <li className="user-profile" onClick={toggleUserProfile}>
           <img src="https://i.pinimg.com/564x/32/dd/d7/32ddd7aa5495a0bfa4a48d0ffa4c4fd6.jpg" className="h-6 w-6" alt="User" /> 
 
@@ -92,7 +98,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
       {/* *********About us*********** */}
-
+     
       <div id="about-us" className="about-section">
         <h2> <span id='aboutustxt'>ABOUT US</span></h2>
         <div className="card-container">
@@ -110,9 +116,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           </div>
         </div>
       </div>
-
+     
       {/* *******report an incident******* */}
-
+{isLoggedIn &&
 <div id="reportanincident">
   <h2 id='reporth2'>REPORT AN INCIDENT</h2>
   <div class="report-sections">
@@ -133,15 +139,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     </div>
   </div>
 </div>
-
+}
 
       {/* ******my reports****** */}
-
+      {isLoggedIn &&
       <div id="my-reports">
-        <h2>My Reports</h2>
-        {/* Content for My Reports section */}
+        <h2 class="requestintervention" >My Reports</h2>
+        <Reports/>
       </div>
-
+      }
 
 
       {/* *******faqs*********** */}
