@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 const SignUp = () => {
+  const history = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -46,8 +48,8 @@ const SignUp = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          
-          if (data.message === 'User created successfully') {
+          console.log(data); 
+          if (data.message === 'Account created successfully') {
             setMessage('Account successfully created'); // Set success message
             // Clear the form fields and errors after success
             setFormData({
@@ -58,6 +60,7 @@ const SignUp = () => {
               role: 'user'
             });
             setErrors({});
+            navigate('/login');
           } else {
             setErrors({ server: data.message });
           }

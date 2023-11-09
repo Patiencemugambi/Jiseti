@@ -5,7 +5,8 @@ import Reports from './Reports';
 
 
 
-function Homepage({ isLoggedIn, setIsLoggedIn }) {
+function Homepage({ isLoggedIn, setIsLoggedIn, username  }) {
+  console.log('Username prop:', username);
   const [showUserProfile, setShowUserProfile] = useState(false);
   
 
@@ -56,10 +57,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           {!isLoggedIn && <li><a href="/login">LOGIN</a></li>}
           {!isLoggedIn && <li><a href="/register">SIGN UP</a></li>}
           <li className="user-profile" onClick={toggleUserProfile}>
-          <img src="https://i.pinimg.com/564x/32/dd/d7/32ddd7aa5495a0bfa4a48d0ffa4c4fd6.jpg" className="h-6 w-6" alt="User" /> 
-
-            {showUserProfile && (
-              <div className="user-profile-expanded">
+          <img src="https://i.pinimg.com/564x/32/dd/d7/32ddd7aa5495a0bfa4a48d0ffa4c4fd6.jpg" className="h-6 w-6" alt="User" />
+          {isLoggedIn && <span className="username">{username}</span>}
+          {showUserProfile && (
+          <div className="user-profile-expanded">
                 <h2>User Profile</h2>
                 <hr />
                 <a href="#notifications"> Notifications</a><br />
