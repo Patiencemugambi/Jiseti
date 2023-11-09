@@ -38,20 +38,28 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: rgb(83, 82, 82);
-    color: white;
+    background-color: white;
+    /* color: rgb(150, 22, 22); */
     padding: 10px;
     border-radius: 5px;
+    box-shadow: 0 2px 4px #3333333a ; 
+    width: 220px;
+    height: 210px;
+    line-height: 2.5;
+
   }
 
 
   .user-profile-expanded a {
-    color: white;
+    /* color: white; */
+    margin-left: 25px ;
+    font-size: large;
+    color: #333;
   }
 
 
   .user-profile-expanded a:hover{
-    color: rgba(255, 255, 255, 0.705);
+    color: gray;
 
   }
   
@@ -312,6 +320,10 @@ footer p:hover{
     justify-content: space-between;
 }
 
+.faq-questions{
+    margin: 10px;
+}
+
 .faqs img{
     max-width: 50%;
 }
@@ -320,4 +332,31 @@ footer p:hover{
     font-size: 4.2vh;
     font-weight: 400;
     color: #333;
+    margin-bottom: 2%;
+}
+
+.faqs p{
+    line-height: 1.5;
+    width: 835px;
+
+}
+
+.faqs h1{
+    /* font-size: 1.8vh; */
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #3333333a;
+}
+
+
+.faq-expanded{
+    background-color: white;
+    box-shadow: 0 2px 4px #3333333a ; 
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #3333333a;
+    margin-top: 5px;
+}
+
+.faqs h1:hover, .faq-expanded:hover{
 }
