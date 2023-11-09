@@ -18,7 +18,7 @@ function Homepage() {
     if (logoutConfirmation) {
       window.location.href = '/login';
     }
-  }
+  }  
 
   // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -146,14 +146,82 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       {/* *******faqs*********** */}
       <div class='faqs'>
-        <div>
+        <div> 
+          <div>
           <h2>Have any Questions?</h2>
-          <p>If you have inquiries for the Jiseti team or an interest in joining our mission to combat corruption in Africa, don't hesitate to get in touch!</p>
+          <p>If you have inquiries for the Jiseti team or an interest in <br /> joining our mission to combat corruption in Africa, don't hesitate to get in touch!</p>
+          </div>
+          <div>
+            <img src="https://previews.123rf.com/images/argus456/argus4561605/argus456160522386/57141285-stop-corruption-3d-rendering-red-sticker-with-white-text.jpg" alt="" />
+          </div>
         </div>
+        <div class='faq-questions'>
+          <h2>FAQs</h2>
+              <p className="user-profile" onClick={toggleUserProfile}>
+                <p>1. What is Jiseti</p>
 
-        
-      {/* ********footer********* */}
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>2. How can I create an account on Jiseti?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>3. What are Red Flags?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>4. What are Intervention Records?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>5. How do I add geolocation to my records?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          <p className="user-profile" onClick={toggleUserProfile}>
+                <p>6. Can I change the geolocation of a record once it's submitted?</p>
+
+            {showUserProfile && (
+              <div className="faq-expanded">
+                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+              </div>
+            )}
+          </p>
+          
+          
+</div>
+
       </div>
+
+
+
+
+              
+      {/* ********footer********* */}
       <footer>
         <div>
           <h2>Navigation Links</h2>

@@ -306,3 +306,18 @@ footer p:hover{
 
   }
   
+.faqs{
+    margin: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faqs img{
+    max-width: 50%;
+}
+
+.faqs h2{
+    font-size: 4.2vh;
+    font-weight: 400;
+    color: #333;
+}
