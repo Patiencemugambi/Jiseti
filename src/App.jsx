@@ -10,6 +10,7 @@ import Redflag from './Components/Redflag';
 import RedflagList from './Components/RedflagList';
 import Admin from './Components/Admin';
 import Reports from './Components/Reports';
+import Homepage from './Components/Homepage';
 
 
 
@@ -18,7 +19,7 @@ const App = () => {
 
     <Router>
       <Routes>
-   
+        <Route path="/" element={<Homepage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
