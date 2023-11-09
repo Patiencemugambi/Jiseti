@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './Components/Register';
@@ -8,6 +6,7 @@ import Intervention from './Components/Intervention';
 import InterventionList from './Components/InterventionList';
 import Redflag from './Components/Redflag';
 import RedflagList from './Components/RedflagList';
+import Homepage from './Components/Homepage';
 
 
 
@@ -19,6 +18,7 @@ const App = () => {
 
     <Router>
       <Routes>
+        <Route path="/homepage" element={<Homepage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path = "/intervention" element = {<Intervention />}/>
