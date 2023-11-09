@@ -155,7 +155,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         <div> 
           <div>
           <h2>Have any Questions?</h2>
-          <p>If you have inquiries for the Jiseti team or an interest in <br /> joining our mission to combat corruption in Africa, don't hesitate to get in touch!</p>
+          <p>If you have inquiries for the Jiseti team or an interest in  joining our mission to combat <br /> corruption in Africa, don't hesitate to get in touch!</p>
+          <a href="/contact" class="report-link">Contact Us</a>
+
           </div>
           <div>
             <img src="https://previews.123rf.com/images/argus456/argus4561605/argus456160522386/57141285-stop-corruption-3d-rendering-red-sticker-with-white-text.jpg" alt="" />
@@ -164,7 +166,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         <div class='faq-questions'>
           <h2>FAQs</h2>
               <p className="user-profile" onClick={toggleUserProfile}>
-                <p>1. What is Jiseti</p>
+                <h1>1. What is Jiseti</h1>
 
             {showUserProfile && (
               <div className="faq-expanded">
@@ -173,57 +175,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             )}
           </p>
           <p className="user-profile" onClick={toggleUserProfile}>
-                <p>2. How can I create an account on Jiseti?</p>
+                <h1>2. How can I create an account on Jiseti?</h1>
 
             {showUserProfile && (
               <div className="faq-expanded">
-                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+                <p>To create an account ...</p>
               </div>
             )}
           </p>
           <p className="user-profile" onClick={toggleUserProfile}>
-                <p>3. What are Red Flags?</p>
+                <h1>3. What are Red Flags?</h1>
 
             {showUserProfile && (
               <div className="faq-expanded">
-                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+                <p>Red Flags are</p>
               </div>
             )}
           </p>
           <p className="user-profile" onClick={toggleUserProfile}>
-                <p>4. What are Intervention Records?</p>
+                <h1>4. What are Intervention Records?</h1>
 
             {showUserProfile && (
               <div className="faq-expanded">
-                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
+                <p>Red Flags are</p>
               </div>
             )}
-          </p>
-          <p className="user-profile" onClick={toggleUserProfile}>
-                <p>5. How do I add geolocation to my records?</p>
-
-            {showUserProfile && (
-              <div className="faq-expanded">
-                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
-              </div>
-            )}
-          </p>
-          <p className="user-profile" onClick={toggleUserProfile}>
-                <p>6. Can I change the geolocation of a record once it's submitted?</p>
-
-            {showUserProfile && (
-              <div className="faq-expanded">
-                <p>Jiseti is a platform designed to combat corruption in Africa by allowing citizens to report incidents and request government intervention in various issues. It empowers users to contribute to transparency and accountability.</p>                
-              </div>
-            )}
-          </p>
-          
-          
-</div>
-
+          </p>                 
+      </div>
       </div>
 
 
+      <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+  <img src="https://i.pinimg.com/564x/28/50/a1/2850a1b5dc9df03106233da06440cb0f.jpg" alt="Scroll to Top" />
+</button>
 
 
               
